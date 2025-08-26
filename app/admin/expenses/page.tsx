@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { 
   DollarSign, TrendingUp, TrendingDown, Receipt, Upload, 
-  Calendar, PieChart, BarChart3, Download, Filter, Plus,
-  Fuel, Package, Wrench, Car, Home, CreditCard, Users, FileText
+  PieChart, Download, Plus,
+  Fuel, Package, Wrench, Home, CreditCard, Users
 } from 'lucide-react';
 
 // Mock expense data

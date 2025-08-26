@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { 
-  DollarSign, Calendar, Clock, Download, CreditCard, 
-  FileText, TrendingUp, Users, CheckCircle, AlertCircle,
-  Building, Percent, Calculator, BanknoteIcon
+  DollarSign, Calendar, Download, CreditCard, 
+  FileText, CheckCircle,
+  Percent, Calculator, BanknoteIcon
 } from 'lucide-react';
 
 // Mock payroll data
@@ -171,11 +171,8 @@ const payrollData = {
 };
 
 export default function PayrollPage() {
-  const [selectedEmployee, setSelectedEmployee] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'employees' | 'history' | 'settings'>('overview');
   const [showPayStub, setShowPayStub] = useState<number | null>(null);
-
-  const selectedEmployeeData = selectedEmployee ? payrollData.employees.find(e => e.id === selectedEmployee) : null;
 
   return (
     <div>
