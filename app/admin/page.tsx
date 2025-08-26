@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   BarChart3,
   Calendar,
@@ -12,6 +13,7 @@ import {
   TrendingUp,
   Users,
   X,
+  Settings,
 } from 'lucide-react';
 
 // Mock data for dashboard
@@ -50,13 +52,14 @@ const revenueData = [
 export default function AdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
+  const router = useRouter();
 
   const sidebarItems = [
-    { id: 'overview', name: 'Overview', icon: Home },
-    { id: 'bookings', name: 'Bookings', icon: Calendar },
-    { id: 'cleaners', name: 'Cleaners', icon: Users },
-    { id: 'revenue', name: 'Revenue', icon: DollarSign },
-    { id: 'analytics', name: 'Analytics', icon: BarChart3 },
+    { id: 'overview', name: 'Overview', icon: Home, path: '/admin' },
+    { id: 'bookings', name: 'Bookings', icon: Calendar, path: '/admin/bookings' },
+    { id: 'cleaners', name: 'Cleaners', icon: Users, path: '/admin/cleaners' },
+    { id: 'customers', name: 'Customers', icon: Users, path: '/admin/customers' },
+    { id: 'settings', name: 'Settings', icon: Settings, path: '/admin/settings' },
   ];
 
   return (
@@ -78,7 +81,11 @@ export default function AdminDashboard() {
                 <button
                   key={item.id}
                   onClick={() => {
-                    setActiveTab(item.id);
+                    if (item.path && item.id !== 'overview') {
+                      router.push(item.path);
+                    } else {
+                      setActiveTab(item.id);
+                    }
                     setSidebarOpen(false);
                   }}
                   className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg mb-2 transition ${
@@ -107,7 +114,13 @@ export default function AdminDashboard() {
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => {
+                  if (item.path && item.id !== 'overview') {
+                    router.push(item.path);
+                  } else {
+                    setActiveTab(item.id);
+                  }
+                }}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg mb-2 transition ${
                   activeTab === item.id
                     ? 'bg-blue-50 text-blue-600'
