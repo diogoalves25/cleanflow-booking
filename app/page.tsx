@@ -136,7 +136,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-semibold mb-2">Smart Scheduling</h4>
+              <h4 className="text-xl font-semibold mb-2 text-gray-900">Smart Scheduling</h4>
               <p className="text-gray-600">Automated booking system with real-time availability and route optimization.</p>
             </div>
             <div className="text-center">
@@ -145,7 +145,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-semibold mb-2">Team Management</h4>
+              <h4 className="text-xl font-semibold mb-2 text-gray-900">Team Management</h4>
               <p className="text-gray-600">Assign jobs, track performance, and manage your cleaning crews efficiently.</p>
             </div>
             <div className="text-center">
@@ -154,7 +154,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
-              <h4 className="text-xl font-semibold mb-2">Online Payments</h4>
+              <h4 className="text-xl font-semibold mb-2 text-gray-900">Online Payments</h4>
               <p className="text-gray-600">Accept payments online with automated invoicing and secure processing.</p>
             </div>
           </div>
