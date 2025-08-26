@@ -3,8 +3,36 @@
 import { useState } from 'react';
 import { 
   Mail, MessageSquare, Users, TrendingUp, Send, Plus, Edit, 
-  Eye, Copy, Filter
+  Eye, Copy, Filter, BarChart3
 } from 'lucide-react';
+
+// Types
+type EmailCampaign = {
+  id: number;
+  name: string;
+  subject: string;
+  status: string;
+  sentDate?: string;
+  scheduledDate?: string | null;
+  recipients: number;
+  opened: number;
+  clicked: number;
+  conversions: number;
+  revenue: number;
+};
+
+type SMSCampaign = {
+  id: number;
+  name: string;
+  message: string;
+  status: string;
+  sentDate?: string;
+  scheduledDate?: string | null;
+  recipients: number;
+  replies: number;
+  conversions: number;
+  revenue: number;
+};
 
 // Mock data for campaigns
 const campaignsData = {
@@ -278,7 +306,9 @@ export default function MarketingPage() {
                         <div>
                           <div className="text-sm font-medium text-gray-900">{campaign.name}</div>
                           <div className="text-sm text-gray-500">
-                            {campaignType === 'email' ? (campaign as any).subject : (campaign as any).message.substring(0, 40) + '...'}
+                            {campaignType === 'email' 
+                              ? (campaign as EmailCampaign).subject 
+                              : (campaign as SMSCampaign).message.substring(0, 40) + '...'}
                           </div>
                         </div>
                       </td>
@@ -302,16 +332,16 @@ export default function MarketingPage() {
                       {campaignType === 'email' && (
                         <>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                            {campaign.status === 'sent' ? `${(((campaign as any).opened / campaign.recipients) * 100).toFixed(1)}%` : '-'}
+                            {campaign.status === 'sent' ? `${(((campaign as EmailCampaign).opened / campaign.recipients) * 100).toFixed(1)}%` : '-'}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                            {campaign.status === 'sent' ? `${(((campaign as any).clicked / campaign.recipients) * 100).toFixed(1)}%` : '-'}
+                            {campaign.status === 'sent' ? `${(((campaign as EmailCampaign).clicked / campaign.recipients) * 100).toFixed(1)}%` : '-'}
                           </td>
                         </>
                       )}
                       {campaignType === 'sms' && (
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          {campaign.status === 'sent' ? `${(((campaign as any).replies / campaign.recipients) * 100).toFixed(1)}%` : '-'}
+                          {campaign.status === 'sent' ? `${(((campaign as SMSCampaign).replies / campaign.recipients) * 100).toFixed(1)}%` : '-'}
                         </td>
                       )}
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
