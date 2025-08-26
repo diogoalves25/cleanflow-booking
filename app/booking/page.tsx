@@ -102,21 +102,21 @@ export default function BookingPage() {
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
                 1
               </div>
-              <span className="ml-2 text-sm font-medium">Service Details</span>
+              <span className="ml-2 text-sm font-medium text-gray-900">Service Details</span>
             </div>
             <div className={`flex-1 h-1 mx-4 ${step >= 2 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
             <div className="flex items-center">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 2 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
                 2
               </div>
-              <span className="ml-2 text-sm font-medium">Schedule & Location</span>
+              <span className="ml-2 text-sm font-medium text-gray-900">Schedule & Location</span>
             </div>
             <div className={`flex-1 h-1 mx-4 ${step >= 3 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
             <div className="flex items-center">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 3 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
                 3
               </div>
-              <span className="ml-2 text-sm font-medium">Contact Info</span>
+              <span className="ml-2 text-sm font-medium text-gray-900">Contact Info</span>
             </div>
           </div>
         </div>
@@ -125,10 +125,10 @@ export default function BookingPage() {
           {/* Step 1: Service Details */}
           {step === 1 && (
             <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-2xl font-bold mb-6">Select Your Service</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Select Your Service</h2>
               
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">Service Type</label>
+                <label className="block text-sm font-medium text-gray-900 mb-3">Service Type</label>
                 <div className="grid grid-cols-2 gap-4">
                   {services.map((service) => {
                     const Icon = service.icon;
@@ -145,7 +145,7 @@ export default function BookingPage() {
                       >
                         <Icon className="w-6 h-6 text-blue-600 mb-2" />
                         <h3 className="font-medium">{service.name}</h3>
-                        <p className="text-gray-600">Starting at ${service.price}</p>
+                        <p className="text-gray-700">Starting at ${service.price}</p>
                       </button>
                     );
                   })}
@@ -153,7 +153,7 @@ export default function BookingPage() {
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">Cleaning Frequency</label>
+                <label className="block text-sm font-medium text-gray-900 mb-3">Cleaning Frequency</label>
                 <div className="space-y-2">
                   {frequencies.map((freq) => (
                     <label
@@ -182,7 +182,7 @@ export default function BookingPage() {
 
               {selectedService && (
                 <div className="bg-blue-50 p-4 rounded-lg mb-6">
-                  <p className="text-sm text-gray-600">Estimated Price:</p>
+                  <p className="text-sm text-gray-700">Estimated Price:</p>
                   <p className="text-2xl font-bold text-blue-600">
                     ${finalPrice.toFixed(2)}
                     {selectedFrequency !== 'once' && <span className="text-sm font-normal">/cleaning</span>}
@@ -204,11 +204,11 @@ export default function BookingPage() {
           {/* Step 2: Schedule & Location */}
           {step === 2 && (
             <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-2xl font-bold mb-6">Schedule Your Cleaning</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Schedule Your Cleaning</h2>
               
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
                     <Calendar className="inline w-4 h-4 mr-1" />
                     Preferred Date
                   </label>
@@ -216,21 +216,21 @@ export default function BookingPage() {
                     type="date"
                     {...register('date', { required: 'Date is required' })}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                   />
                   {errors.date && <p className="text-red-500 text-sm mt-1">{errors.date.message}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
                     <Clock className="inline w-4 h-4 mr-1" />
                     Preferred Time
                   </label>
                   <select
                     {...register('time', { required: 'Time is required' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 bg-white"
                   >
-                    <option value="">Select a time</option>
+                    <option value="" className="text-gray-500">Select a time</option>
                     {timeSlots.map((time) => (
                       <option key={time} value={time}>{time}</option>
                     ))}
@@ -240,14 +240,14 @@ export default function BookingPage() {
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-900 mb-2">
                   Estimated Duration
                 </label>
                 <select
                   {...register('duration', { required: 'Duration is required' })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 bg-white"
                 >
-                  <option value="">Select duration</option>
+                  <option value="" className="text-gray-500">Select duration</option>
                   {durations.map((duration) => (
                     <option key={duration.hours} value={duration.hours}>{duration.label}</option>
                   ))}
@@ -255,49 +255,52 @@ export default function BookingPage() {
                 {errors.duration && <p className="text-red-500 text-sm mt-1">{errors.duration.message}</p>}
               </div>
 
-              <h3 className="font-semibold mb-4">Service Address</h3>
+              <h3 className="font-semibold text-gray-900 mb-4">Service Address</h3>
               
               <div className="space-y-4 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Street Address</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Street Address</label>
                   <input
                     type="text"
                     {...register('address', { required: 'Address is required' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                     placeholder="123 Main Street"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                   />
                   {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address.message}</p>}
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">City</label>
                     <input
                       type="text"
                       {...register('city', { required: 'City is required' })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                     />
                     {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city.message}</p>}
                   </div>
                   <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">State</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">State</label>
                     <input
                       type="text"
                       {...register('state', { required: 'State is required' })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                       maxLength={2}
                       placeholder="CA"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                     />
                     {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state.message}</p>}
                   </div>
                   <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">ZIP Code</label>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">ZIP Code</label>
                     <input
                       type="text"
                       {...register('zipCode', { required: 'ZIP code is required' })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                       maxLength={5}
                       placeholder="12345"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                     />
                     {errors.zipCode && <p className="text-red-500 text-sm mt-1">{errors.zipCode.message}</p>}
                   </div>
@@ -326,24 +329,24 @@ export default function BookingPage() {
           {/* Step 3: Contact Info */}
           {step === 3 && (
             <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
               
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">First Name</label>
                   <input
                     type="text"
                     {...register('firstName', { required: 'First name is required' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                   />
                   {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Last Name</label>
                   <input
                     type="text"
                     {...register('lastName', { required: 'Last name is required' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                   />
                   {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>}
                 </div>
@@ -351,7 +354,7 @@ export default function BookingPage() {
 
               <div className="space-y-4 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Email</label>
                   <input
                     type="email"
                     {...register('email', { 
@@ -361,24 +364,25 @@ export default function BookingPage() {
                         message: 'Invalid email address'
                       }
                     })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                   />
                   {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">Phone Number</label>
                   <input
                     type="tel"
                     {...register('phone', { required: 'Phone number is required' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
                     placeholder="(555) 123-4567"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                   />
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-900 mb-2">
                   Special Instructions (Optional)
                 </label>
                 <textarea
@@ -386,12 +390,13 @@ export default function BookingPage() {
                   rows={4}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   placeholder="Any special requests or access instructions..."
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                 />
               </div>
 
               <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                <h3 className="font-semibold mb-2">Booking Summary</h3>
-                <div className="space-y-1 text-sm">
+                <h3 className="font-semibold text-gray-900 mb-2">Booking Summary</h3>
+                <div className="space-y-1 text-sm text-gray-900">
                   <p>Service: {selectedServiceData?.name}</p>
                   <p>Frequency: {selectedFrequencyData?.name}</p>
                   <p className="font-semibold text-blue-600">Total: ${finalPrice.toFixed(2)}</p>
