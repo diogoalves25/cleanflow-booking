@@ -53,7 +53,7 @@ export default function BookingPage() {
   const [selectedService, setSelectedService] = useState<string>('');
   const [selectedFrequency, setSelectedFrequency] = useState<string>('once');
   
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<BookingFormData>();
+  const { register, handleSubmit, formState: { errors } } = useForm<BookingFormData>();
 
   const onSubmit: SubmitHandler<BookingFormData> = (data) => {
     console.log('Booking submitted:', data);
@@ -263,9 +263,8 @@ export default function BookingPage() {
                   <input
                     type="text"
                     {...register('address', { required: 'Address is required' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
-                    placeholder="123 Main Street"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
+                    placeholder="123 Main Street"
                   />
                   {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address.message}</p>}
                 </div>
@@ -285,10 +284,9 @@ export default function BookingPage() {
                     <input
                       type="text"
                       {...register('state', { required: 'State is required' })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                       maxLength={2}
                       placeholder="CA"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                     />
                     {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state.message}</p>}
                   </div>
@@ -297,10 +295,9 @@ export default function BookingPage() {
                     <input
                       type="text"
                       {...register('zipCode', { required: 'ZIP code is required' })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                       maxLength={5}
                       placeholder="12345"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
                     />
                     {errors.zipCode && <p className="text-red-500 text-sm mt-1">{errors.zipCode.message}</p>}
                   </div>
@@ -373,9 +370,8 @@ export default function BookingPage() {
                   <input
                     type="tel"
                     {...register('phone', { required: 'Phone number is required' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900"
-                    placeholder="(555) 123-4567"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
+                    placeholder="(555) 123-4567"
                   />
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
                 </div>
@@ -388,9 +384,8 @@ export default function BookingPage() {
                 <textarea
                   {...register('specialInstructions')}
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="Any special requests or access instructions..."
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 placeholder-gray-500"
+                  placeholder="Any special requests or access instructions..."
                 />
               </div>
 
