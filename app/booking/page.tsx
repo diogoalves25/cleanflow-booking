@@ -144,7 +144,7 @@ export default function BookingPage() {
                         }`}
                       >
                         <Icon className="w-6 h-6 text-blue-600 mb-2" />
-                        <h3 className="font-medium">{service.name}</h3>
+                        <h3 className="font-medium text-gray-900">{service.name}</h3>
                         <p className="text-gray-700">Starting at ${service.price}</p>
                       </button>
                     );
@@ -169,9 +169,9 @@ export default function BookingPage() {
                         value={freq.id}
                         checked={selectedFrequency === freq.id}
                         onChange={(e) => setSelectedFrequency(e.target.value)}
-                        className="mr-3"
+                        className="mr-3 text-blue-600"
                       />
-                      <span className="flex-1 font-medium">{freq.name}</span>
+                      <span className="flex-1 font-medium text-gray-900">{freq.name}</span>
                       {freq.discount > 0 && (
                         <span className="text-green-600 font-semibold">Save {freq.discount}%</span>
                       )}
