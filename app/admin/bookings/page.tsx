@@ -115,7 +115,7 @@ export default function BookingsPage() {
           
           <div className="grid grid-cols-7 gap-px bg-gray-200 rounded-lg overflow-hidden">
             {dayNames.map(day => (
-              <div key={day} className="bg-gray-50 p-3 text-center font-semibold text-gray-700">
+              <div key={day} className="bg-gray-50 p-3 text-center font-semibold text-gray-900">
                 {day}
               </div>
             ))}
@@ -135,7 +135,7 @@ export default function BookingsPage() {
                     isSelected ? 'bg-blue-50' : ''
                   }`}
                 >
-                  <div className="font-semibold mb-1">{day.getDate()}</div>
+                  <div className="font-semibold mb-1 text-gray-900">{day.getDate()}</div>
                   {bookings.length > 0 && (
                     <div className="space-y-1">
                       {bookings.slice(0, 3).map((booking, i) => (

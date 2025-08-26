@@ -194,7 +194,7 @@ export default function SettingsPage() {
                         <input
                           type="text"
                           value={location.address}
-                          className="flex-1 border-gray-300 rounded-md"
+                          className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                           placeholder="Location address"
                         />
                       </div>
@@ -206,7 +206,7 @@ export default function SettingsPage() {
                         <input
                           type="text"
                           value={location.phone}
-                          className="flex-1 border-gray-300 rounded-md"
+                          className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                           placeholder="Phone number"
                         />
                       </div>
@@ -218,7 +218,7 @@ export default function SettingsPage() {
                         <input
                           type="email"
                           value={location.email}
-                          className="flex-1 border-gray-300 rounded-md"
+                          className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                           placeholder="Location email"
                         />
                       </div>
@@ -230,7 +230,7 @@ export default function SettingsPage() {
                         <input
                           type="text"
                           value={location.manager}
-                          className="flex-1 border-gray-300 rounded-md"
+                          className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                           placeholder="Manager name"
                         />
                       </div>
@@ -240,7 +240,7 @@ export default function SettingsPage() {
                       <input
                         type="text"
                         value={location.serviceArea}
-                        className="w-full border-gray-300 rounded-md"
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                         placeholder="Cities and neighborhoods served"
                       />
                     </div>
@@ -274,7 +274,7 @@ export default function SettingsPage() {
                   type="text"
                   value={businessSettings.companyName}
                   onChange={(e) => setBusinessSettings({...businessSettings, companyName: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 />
               </div>
               <div>
@@ -283,7 +283,7 @@ export default function SettingsPage() {
                   type="email"
                   value={businessSettings.businessEmail}
                   onChange={(e) => setBusinessSettings({...businessSettings, businessEmail: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 />
               </div>
               <div>
@@ -292,7 +292,7 @@ export default function SettingsPage() {
                   type="tel"
                   value={businessSettings.businessPhone}
                   onChange={(e) => setBusinessSettings({...businessSettings, businessPhone: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 />
               </div>
               <div>
@@ -301,7 +301,7 @@ export default function SettingsPage() {
                   type="url"
                   value={businessSettings.website}
                   onChange={(e) => setBusinessSettings({...businessSettings, website: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 />
               </div>
               <div>
@@ -309,7 +309,7 @@ export default function SettingsPage() {
                 <select
                   value={businessSettings.timezone}
                   onChange={(e) => setBusinessSettings({...businessSettings, timezone: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 >
                   <option value="America/Los_Angeles">Pacific Time</option>
                   <option value="America/Denver">Mountain Time</option>
@@ -322,7 +322,7 @@ export default function SettingsPage() {
                 <select
                   value={businessSettings.currency}
                   onChange={(e) => setBusinessSettings({...businessSettings, currency: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 >
                   <option value="USD">USD - US Dollar</option>
                   <option value="EUR">EUR - Euro</option>
@@ -340,7 +340,7 @@ export default function SettingsPage() {
                   type="number"
                   value={businessSettings.bookingBuffer}
                   onChange={(e) => setBusinessSettings({...businessSettings, bookingBuffer: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 />
               </div>
               <div>
@@ -349,7 +349,7 @@ export default function SettingsPage() {
                   type="number"
                   value={businessSettings.cancellationPolicy}
                   onChange={(e) => setBusinessSettings({...businessSettings, cancellationPolicy: e.target.value})}
-                  className="w-full border-gray-300 rounded-md"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900"
                 />
               </div>
               <div className="flex items-center">
@@ -419,7 +419,7 @@ export default function SettingsPage() {
                         type="password"
                         value={value.key}
                         readOnly
-                        className="w-full border-gray-300 rounded-md bg-gray-50"
+                        className="w-full border border-gray-300 rounded-md bg-gray-50 px-3 py-2 text-gray-900"
                       />
                     </div>
                   )}
