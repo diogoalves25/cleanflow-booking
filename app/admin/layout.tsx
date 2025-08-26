@@ -11,6 +11,8 @@ import {
   Users,
   X,
   DollarSign,
+  Mail,
+  Receipt,
 } from 'lucide-react';
 
 export default function AdminLayout({
@@ -28,6 +30,8 @@ export default function AdminLayout({
     { id: 'cleaners', name: 'Cleaners', icon: Users, path: '/admin/cleaners' },
     { id: 'customers', name: 'Customers', icon: Users, path: '/admin/customers' },
     { id: 'payroll', name: 'Payroll', icon: DollarSign, path: '/admin/payroll' },
+    { id: 'marketing', name: 'Marketing', icon: Mail, path: '/admin/marketing' },
+    { id: 'expenses', name: 'Expenses', icon: Receipt, path: '/admin/expenses' },
     { id: 'settings', name: 'Settings', icon: Settings, path: '/admin/settings' },
   ];
 
