@@ -645,7 +645,7 @@ export default function PayrollPage() {
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
                         <span className="text-gray-600">YTD Gross:</span>
-                        <span className="ml-2 text-gray-900">${employee.ytdGross.toLocaleString()}</spot>
+                        <span className="ml-2 text-gray-900">${employee.ytdGross.toLocaleString()}</span>
                       </div>
                       <div>
                         <span className="text-gray-600">YTD Net:</span>
