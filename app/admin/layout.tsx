@@ -3,9 +3,7 @@
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import {
-  BarChart3,
   Calendar,
-  DollarSign,
   Home,
   LogOut,
   Menu,

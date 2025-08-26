@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Clock, MapPin, User, DollarSign, Calendar as CalendarIcon } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, User, DollarSign, Calendar as CalendarIcon } from 'lucide-react';
 
 // Mock booking data
 const bookingsData = [

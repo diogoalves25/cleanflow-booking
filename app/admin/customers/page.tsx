@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Phone, Mail, MapPin, Calendar, DollarSign, Star, Clock, Filter, Download, UserPlus } from 'lucide-react';
+import { Search, Phone, Mail, MapPin, Calendar, DollarSign, Star, Download, UserPlus } from 'lucide-react';
 
 // Mock customer data
 const customersData = [

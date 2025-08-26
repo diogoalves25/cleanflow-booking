@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  BarChart3,
   Calendar,
   DollarSign,
   Home,

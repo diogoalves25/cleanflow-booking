@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Star, DollarSign, Calendar, Clock, MapPin, TrendingUp, Phone, Mail, CheckCircle, XCircle } from 'lucide-react';
+import { Star, DollarSign, Calendar, Clock, MapPin, Phone, CheckCircle, XCircle } from 'lucide-react';
 
 // Mock cleaner data
 const cleanersData = [
@@ -159,8 +159,7 @@ export default function CleanersPage() {
     statusFilter === 'all' || cleaner.status === statusFilter
   );
 
-  const getAvailabilityDays = (availability: any) => {
-    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const getAvailabilityDays = (availability: Record<string, boolean>) => {
     const availableDays = [];
     if (availability.mon) availableDays.push('Mon');
     if (availability.tue) availableDays.push('Tue');
@@ -179,7 +178,7 @@ export default function CleanersPage() {
         <div className="flex space-x-4">
           <select
             value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value as any)}
+            onChange={(e) => setStatusFilter(e.target.value as 'all' | 'active' | 'inactive')}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="all">All Cleaners</option>
@@ -208,7 +207,7 @@ export default function CleanersPage() {
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Today's Jobs</p>
+              <p className="text-sm text-gray-600">Today&apos;s Jobs</p>
               <p className="text-2xl font-bold text-gray-900">
                 {cleanersData.reduce((sum, c) => sum + c.todaySchedule.length, 0)}
               </p>
@@ -219,7 +218,7 @@ export default function CleanersPage() {
         <div className="bg-white rounded-lg shadow p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Today's Revenue</p>
+              <p className="text-sm text-gray-600">Today&apos;s Revenue</p>
               <p className="text-2xl font-bold text-gray-900">
                 ${cleanersData.reduce((sum, c) => sum + c.earnings.today, 0)}
               </p>
@@ -259,7 +258,7 @@ export default function CleanersPage() {
                   Jobs
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Today's Schedule
+                  Today&apos;s Schedule
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Earnings (Month)
@@ -352,7 +351,7 @@ export default function CleanersPage() {
           <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-bold text-gray-900">
-                {cleanersData.find(c => c.id === selectedCleaner)?.name}'s Schedule
+                {cleanersData.find(c => c.id === selectedCleaner)?.name}&apos;s Schedule
               </h3>
               <button 
                 onClick={() => setSelectedCleaner(null)}

@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { 
-  Building2, MapPin, Clock, CreditCard, Bell, Shield, 
+  Building2, MapPin, Bell, Shield, 
   Users, Globe, Smartphone, Mail, Save, Plus, Trash2, 
-  CheckCircle, AlertCircle, Phone, DollarSign, Calendar
+  CheckCircle, AlertCircle, Phone
 } from 'lucide-react';
 
 export default function SettingsPage() {
@@ -60,7 +60,7 @@ export default function SettingsPage() {
     depositAmount: '25',
   });
 
-  const [integrations, setIntegrations] = useState({
+  const [integrations] = useState({
     stripe: { connected: true, key: 'sk_test_••••••••••••' },
     twilio: { connected: false, key: '' },
     google: { connected: true, key: 'AIza••••••••••••' },
