@@ -91,83 +91,8 @@ export default function BookingsPage() {
         </div>
       </div>
 
-      {view === 'calendar' && (
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-semibold text-gray-900">
-              {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
-            </h2>
-            <div className="flex space-x-2">
-              <button
-                onClick={previousMonth}
-                className="p-2 hover:bg-gray-100 rounded-lg"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                onClick={nextMonth}
-                className="p-2 hover:bg-gray-100 rounded-lg"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-7 gap-px bg-gray-200 rounded-lg overflow-hidden">
-            {dayNames.map(day => (
-              <div key={day} className="bg-gray-50 p-3 text-center font-semibold text-gray-900">
-                {day}
-              </div>
-            ))}
-            {calendarDays.map((day, index) => {
-              const bookings = getBookingsForDate(day);
-              const isCurrentMonth = day.getMonth() === currentDate.getMonth();
-              const isToday = day.toDateString() === new Date().toDateString();
-              const isSelected = selectedDate?.toDateString() === day.toDateString();
-              
-              return (
-                <div
-                  key={index}
-                  onClick={() => setSelectedDate(day)}
-                  className={`bg-white p-3 min-h-[100px] cursor-pointer hover:bg-gray-50 ${
-                    !isCurrentMonth ? 'text-gray-400' : ''
-                  } ${isToday ? 'ring-2 ring-blue-600' : ''} ${
-                    isSelected ? 'bg-blue-50' : ''
-                  }`}
-                >
-                  <div className="font-semibold mb-1 text-gray-900">{day.getDate()}</div>
-                  {bookings.length > 0 && (
-                    <div className="space-y-1">
-                      {bookings.slice(0, 3).map((booking, i) => (
-                        <div
-                          key={i}
-                          className={`text-xs p-1 rounded truncate ${
-                            booking.status === 'completed' 
-                              ? 'bg-green-100 text-green-800' 
-                              : booking.status === 'in_progress'
-                              ? 'bg-yellow-100 text-yellow-800'
-                              : 'bg-blue-100 text-blue-800'
-                          }`}
-                        >
-                          {booking.time} - {booking.customer.split(' ')[0]}
-                        </div>
-                      ))}
-                      {bookings.length > 3 && (
-                        <div className="text-xs text-gray-500">
-                          +{bookings.length - 3} more
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
       {/* List View */}
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
         <div className="p-6 border-b">
           <h3 className="text-lg font-semibold text-gray-900">
             {selectedDate 
@@ -263,6 +188,79 @@ export default function BookingsPage() {
           </table>
         </div>
       </div>
+
+      {/* Calendar View */}
+      {view === 'calendar' && (
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="p-6 border-b">
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-semibold text-gray-900">
+                {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+              </h3>
+              <div className="flex space-x-2">
+                <button
+                  onClick={previousMonth}
+                  className="p-2 rounded-lg hover:bg-gray-100"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={nextMonth}
+                  className="p-2 rounded-lg hover:bg-gray-100"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="p-6">
+            <div className="grid grid-cols-7 gap-2 mb-4">
+              {dayNames.map(day => (
+                <div key={day} className="text-center text-sm font-medium text-gray-600">
+                  {day}
+                </div>
+              ))}
+            </div>
+            
+            <div className="grid grid-cols-7 gap-2">
+              {calendarDays.map((day, index) => {
+                const isCurrentMonth = day.getMonth() === currentDate.getMonth();
+                const bookings = getBookingsForDate(day);
+                const isSelected = selectedDate?.toDateString() === day.toDateString();
+                const isToday = day.toDateString() === new Date().toDateString();
+                
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedDate(day)}
+                    className={`min-h-[80px] p-2 border rounded-lg text-left transition-colors ${
+                      isCurrentMonth ? 'bg-white' : 'bg-gray-50'
+                    } ${
+                      isSelected ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-200'
+                    } ${
+                      isToday ? 'bg-blue-50' : ''
+                    } hover:bg-gray-50`}
+                  >
+                    <div className={`text-sm font-medium ${
+                      isCurrentMonth ? 'text-gray-900' : 'text-gray-400'
+                    }`}>
+                      {day.getDate()}
+                    </div>
+                    {bookings.length > 0 && (
+                      <div className="mt-1">
+                        <div className="text-xs text-blue-600 font-medium">
+                          {bookings.length} booking{bookings.length > 1 ? 's' : ''}
+                        </div>
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
