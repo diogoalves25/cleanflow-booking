@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, Check, Building2, DollarSign, Users, Zap, Calendar, BarChart3, Mail } from 'lucide-react';
+import { ArrowLeft, Check, DollarSign, Users, Zap, Calendar, BarChart3, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
@@ -427,21 +427,21 @@ export default function BusinessSignup() {
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <p className="text-gray-600 italic mb-4">
-                "CleanFlow transformed how we manage our business. We&apos;ve doubled our bookings!"
+                &ldquo;CleanFlow transformed how we manage our business. We&apos;ve doubled our bookings!&rdquo;
               </p>
               <div className="font-semibold text-gray-900">Sarah J.</div>
               <div className="text-sm text-gray-600">Sparkle Clean Co.</div>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <p className="text-gray-600 italic mb-4">
-                "The automated scheduling alone saves us 10+ hours per week. Game changer!"
+                &ldquo;The automated scheduling alone saves us 10+ hours per week. Game changer!&rdquo;
               </p>
               <div className="font-semibold text-gray-900">Mike R.</div>
               <div className="text-sm text-gray-600">Premium Cleaning Services</div>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <p className="text-gray-600 italic mb-4">
-                "Best investment for our growing cleaning business. Highly recommend!"
+                &ldquo;Best investment for our growing cleaning business. Highly recommend!&rdquo;
               </p>
               <div className="font-semibold text-gray-900">Lisa M.</div>
               <div className="text-sm text-gray-600">Fresh Home Cleaners</div>
