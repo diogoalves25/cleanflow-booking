@@ -89,16 +89,70 @@ export default function AdminDashboard() {
           <h3 className="text-lg font-semibold text-gray-800">Revenue Overview</h3>
           <TrendingUp className="w-5 h-5 text-green-600" />
         </div>
-        <div className="h-64 flex items-end justify-between space-x-2">
-          {revenueData.map((data, index) => (
-            <div key={index} className="flex-1 flex flex-col items-center">
-              <div
-                className="w-full bg-blue-600 rounded-t"
-                style={{ height: `${(data.revenue / 60000) * 100}%` }}
-              ></div>
-              <span className="text-xs text-gray-600 mt-2">{data.month}</span>
+        <div className="space-y-4">
+          {/* Chart container */}
+          <div className="h-64 relative flex">
+            {/* Y-axis labels */}
+            <div className="flex flex-col justify-between text-xs text-gray-500 pr-4 w-12">
+              <span>$60k</span>
+              <span>$45k</span>
+              <span>$30k</span>
+              <span>$15k</span>
+              <span>$0</span>
             </div>
-          ))}
+            
+            {/* Chart area */}
+            <div className="flex-1 h-full flex items-end space-x-2 border-l-2 border-b-2 border-gray-200 pb-6 pl-4">
+              {revenueData.map((data, index) => {
+                const maxRevenue = 60000;
+                const heightPercentage = (data.revenue / maxRevenue) * 100;
+                return (
+                  <div key={index} className="flex-1 flex flex-col items-center justify-end h-full">
+                    {/* Value label */}
+                    <span className="text-xs font-semibold text-gray-700 mb-2">
+                      ${(data.revenue / 1000).toFixed(0)}k
+                    </span>
+                    {/* Bar container */}
+                    <div className="w-full relative flex-1 flex items-end">
+                      {/* Bar */}
+                      <div
+                        className="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-t-lg hover:from-blue-700 hover:to-blue-500 transition-all duration-300 hover:shadow-lg relative group cursor-pointer"
+                        style={{ 
+                          height: `${heightPercentage}%`,
+                          minHeight: '20px'
+                        }}
+                      >
+                        {/* Hover tooltip */}
+                        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                          <div className="font-semibold">${data.revenue.toLocaleString()}</div>
+                          <div className="text-gray-300">{data.month} 2024</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* X-axis labels */}
+          <div className="flex ml-12 pl-4">
+            {revenueData.map((data, index) => (
+              <div key={index} className="flex-1 text-center">
+                <span className="text-sm font-medium text-gray-600">{data.month}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Chart footer */}
+        <div className="mt-4 pt-4 border-t flex justify-between items-center">
+          <div className="text-sm text-gray-600">
+            <span className="font-medium">Total Revenue:</span> ${revenueData.reduce((sum, d) => sum + d.revenue, 0).toLocaleString()}
+          </div>
+          <div className="text-sm text-green-600 font-medium">
+            +8.2% vs last period
+          </div>
         </div>
       </div>
 
