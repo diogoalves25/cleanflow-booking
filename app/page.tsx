@@ -66,7 +66,7 @@ export default function Home() {
               <Link href="/pricing" className="text-gray-700 hover:text-blue-600">Pricing</Link>
               <Link href="/about" className="text-gray-700 hover:text-blue-600">About</Link>
               <Link href="/booking" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                Book Demo
+                See Demo
               </Link>
               <Link href="/admin" className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50">
                 Sign In
@@ -92,7 +92,7 @@ export default function Home() {
               <Link href="/pricing" className="block px-3 py-2 text-gray-700 hover:text-blue-600">Pricing</Link>
               <Link href="/about" className="block px-3 py-2 text-gray-700 hover:text-blue-600">About</Link>
               <Link href="/booking" className="block px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                Book Demo
+                See Demo
               </Link>
               <Link href="/admin" className="block px-3 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50">
                 Sign In
@@ -113,7 +113,7 @@ export default function Home() {
             Save time, delight customers, and boost revenue.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/booking" className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700">
+            <Link href="/signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700">
               Start Free Trial
             </Link>
             <Link href="/demo" className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-50">
@@ -204,13 +204,15 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <button className={`w-full py-3 rounded-lg font-semibold ${
-                  tier.popular
-                    ? 'bg-blue-600 text-white hover:bg-blue-700'
-                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                }`}>
+                <Link 
+                  href="/signup" 
+                  className={`block w-full py-3 text-center rounded-lg font-semibold ${
+                    tier.popular
+                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                  }`}>
                   Get Started
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -226,7 +228,7 @@ export default function Home() {
           <p className="text-xl text-blue-100 mb-8">
             Join thousands of cleaning professionals who trust CleanFlow
           </p>
-          <Link href="/booking" className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 inline-block">
+          <Link href="/signup" className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 inline-block">
             Start Your Free Trial
           </Link>
         </div>
