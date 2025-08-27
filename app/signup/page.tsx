@@ -171,7 +171,7 @@ export default function BusinessSignup() {
                   <input
                     {...register('businessName', { required: 'Business name is required' })}
                     type="text"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                     placeholder="Sparkle Clean Services"
                   />
                   {errors.businessName && (
@@ -187,7 +187,7 @@ export default function BusinessSignup() {
                     <input
                       {...register('ownerFirstName', { required: 'First name is required' })}
                       type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                     />
                     {errors.ownerFirstName && (
                       <p className="mt-1 text-sm text-red-600">{errors.ownerFirstName.message}</p>
@@ -200,7 +200,7 @@ export default function BusinessSignup() {
                     <input
                       {...register('ownerLastName', { required: 'Last name is required' })}
                       type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                     />
                     {errors.ownerLastName && (
                       <p className="mt-1 text-sm text-red-600">{errors.ownerLastName.message}</p>
@@ -222,7 +222,7 @@ export default function BusinessSignup() {
                         }
                       })}
                       type="email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                       placeholder="owner@cleaningbusiness.com"
                     />
                     {errors.email && (
@@ -236,7 +236,7 @@ export default function BusinessSignup() {
                     <input
                       {...register('phone', { required: 'Phone is required' })}
                       type="tel"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                       placeholder="(555) 123-4567"
                     />
                     {errors.phone && (
@@ -345,7 +345,7 @@ export default function BusinessSignup() {
                       }
                     })}
                     type="password"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                     placeholder="At least 8 characters"
                   />
                   {errors.password && (
@@ -363,7 +363,7 @@ export default function BusinessSignup() {
                       validate: value => value === password || 'Passwords do not match'
                     })}
                     type="password"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
                     placeholder="Re-enter password"
                   />
                   {errors.confirmPassword && (
